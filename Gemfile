@@ -58,3 +58,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "faker", "git" => "https://github.com/stympy/faker.git", :branch => "main"
