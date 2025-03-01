@@ -3,6 +3,13 @@
 
 <div id="products">
   <% @products.each do |product| %>
-    <%= render product %>
+
+    <h3><%= product.title %></h3>
+    <p>price: <%= product.price %></p>
+    <p>stock quantity: <%= product.stock_quantity %></p>
+
+    <p>
+      <%= link_to "show this product", product %>
+    </p>
   <% end %>
 </div>
