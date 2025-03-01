@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_26_175740) do
+ActiveRecord::Schema[7.2].define(version: 2025_03_01_050401) do
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -18,5 +24,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_26_175740) do
     t.integer "stock_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
+
+  add_foreign_key "products", "categories"
 end
